@@ -1,12 +1,10 @@
-// Write a function called sum that finds the sum from 1 to a number
-
-function sum(n){
-    let total = 0;
-    for(let i=1;i<n;i++){
-        total += i;
-    }
-    return total;
+// Write a function that takes a user as an input and greets them with their name and age
+function greetUser(user) {
+    console.log("Hi " + user.name + ", you are welcome after " + user.age + " years!");
 }
 
-let result = sum(100);
-console.log(result); // Output: 4950
+let user = {
+    name: "John",
+    age: 30 
+}
+greetUser(user);
