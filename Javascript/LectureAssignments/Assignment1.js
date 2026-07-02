@@ -1,10 +1,25 @@
-// Write a function that takes a user as an input and greets them with their name and age
+// Write a function that takes a new object as input which has name , age  and gender and greets the user with their gender (Hi Mr/Mrs/Others harkirat, your age is 21). Also tell the user if they are legal to vote or not
+
 function greetUser(user) {
-    console.log("Hi " + user.name + ", you are welcome after " + user.age + " years!");
+    let greeting = "Hi ";
+    if (user.gender === "male") {
+        greeting += "Mr. ";
+    }   else if (user.gender === "female") {                         
+        greeting += "Mrs. ";
+    } else {
+        greeting += " ";
+    }
+    console.log(greeting + user.name + ", your age is " + user.age);
+    if (user.age >= 18) {
+        console.log("You are legal to vote.");
+    } else {
+        console.log("You are not legal to vote.");
+    }
 }
 
 let user = {
-    name: "John",
-    age: 30 
+    name: "Harkirat",
+    age: 21,
+    gender: "male"
 }
 greetUser(user);
