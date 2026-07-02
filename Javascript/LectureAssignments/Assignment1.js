@@ -1,25 +1,11 @@
-// Write a function that takes a new object as input which has name , age  and gender and greets the user with their gender (Hi Mr/Mrs/Others harkirat, your age is 21). Also tell the user if they are legal to vote or not
+// Write a function that takes an array of numbers as input, and returns a new array with only even values. Read about filter in JS
 
-function greetUser(user) {
-    let greeting = "Hi ";
-    if (user.gender === "male") {
-        greeting += "Mr. ";
-    }   else if (user.gender === "female") {                         
-        greeting += "Mrs. ";
-    } else {
-        greeting += " ";
-    }
-    console.log(greeting + user.name + ", your age is " + user.age);
-    if (user.age >= 18) {
-        console.log("You are legal to vote.");
-    } else {
-        console.log("You are not legal to vote.");
-    }
+function EvenNumbers(Array){
+    return Array.filter(function(num) {
+        return num % 2 === 0;
+    })
 }
 
-let user = {
-    name: "Harkirat",
-    age: 21,
-    gender: "male"
-}
-greetUser(user);
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evenArray = EvenNumbers(array);
+console.log(evenArray); // Output: [2, 4, 6, 8, 10]
