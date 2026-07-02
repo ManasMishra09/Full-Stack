@@ -1,8 +1,12 @@
-// Write an if/else statement that checks if a number is even or odd. If it's even, print "The number is even." Otherwise, print "The number is odd."
-let number = 7;
+// Write a function called sum that finds the sum from 1 to a number
 
-if (number % 2 === 0) {
-    console.log("The number is even.");
-} else {
-    console.log("The number is odd.");
+function sum(n){
+    let total = 0;
+    for(let i=1;i<n;i++){
+        total += i;
+    }
+    return total;
 }
+
+let result = sum(100);
+console.log(result); // Output: 4950
