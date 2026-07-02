@@ -1,9 +1,8 @@
-// Create a variable for each of the following: your favorite color, your height in centimeters, and whether you like pizza. Use appropriate variable declarations (let, const, or var). Try logging it using console.log
+// Write a function sum that finds the sum of two numbers. 
+//Side quest - Try passing in a string instead of a number and see what happens?
+function sum(a,b){
+    return a + b;
+}
 
-const favoriteColor = "blue";
-let heightInCentimeters = 175;
-var likesPizza = true;
-
-console.log("Favorite Color:", favoriteColor);
-console.log("Height in Centimeters:", heightInCentimeters);
-console.log("Likes Pizza:", likesPizza);
+var result = sum("5", "10");
+console.log("result: " + result);
