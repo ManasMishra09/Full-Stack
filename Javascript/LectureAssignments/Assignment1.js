@@ -1,8 +1,13 @@
-// Write a function sum that finds the sum of two numbers. 
-//Side quest - Try passing in a string instead of a number and see what happens?
-function sum(a,b){
-    return a + b;
+// Write a function called canVote that returns true or false if the age of a user is > 18
+
+function canVote(age) {
+    if (age >= 18) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-var result = sum("5", "10");
-console.log("result: " + result);
+let age = 20;
+console.log(canVote(age)); // Output: true
