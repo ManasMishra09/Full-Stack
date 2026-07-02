@@ -1,11 +1,16 @@
-// Write a function that takes an array of numbers as input, and returns a new array with only even values. Read about filter in JS
+// Write a function that takes an array of users as inputs and returns only the users who are more than 18 years old 
+let users = [{
+    name: "John",
+    age:15
+},
+    {
+     name: "Jane",
+     age: 17            
+    }]
 
-function EvenNumbers(Array){
-    return Array.filter(function(num) {
-        return num % 2 === 0;
-    })
-}
+function AdultUsers(users) {
+    let adultUsers = users.filter(user => user.age > 18);
+    return adultUsers;
+}    
 
-let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let evenArray = EvenNumbers(array);
-console.log(evenArray); // Output: [2, 4, 6, 8, 10]
+console.log(AdultUsers(users));
