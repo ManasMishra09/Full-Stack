@@ -5,9 +5,14 @@ const express = require('express');
 
 const app = express();
 
-app.get("/sum")
-app.get("/sub")
-app.get("/mul")
-app.get("/div")
+app.get("/sum",function(req,res){
+ const a = parseInt(req.query.a);
+ const b = parseInt(req.query.b);
+
+ const sum = a + b;
+ res.json({
+    ans : sum
+ })
+})
 
 app.listen(3000);
