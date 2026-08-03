@@ -22,7 +22,6 @@ app.get("/sum",function(req,res){
     res.json({
         ans : sub
     })
- }
 })
 
 app.listen(3000);
