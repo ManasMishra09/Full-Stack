@@ -1,21 +1,16 @@
-//Creating a calcultor bases http server(/sum,/sub, /mul, /div) that supports 4 routes
-//expressjs, hono, elysiajs, trpc
-
 const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
 app.get("/",function(req,res){
     res.sendFile("D:/Full Stack Course/Html/index.html");
 })
-
-
-//http://localhost:3000/sum?a=10&b=20 this is a query parameter.
-//But if we need to give the values in the form of path parameter then we can use /sum/:a/:b but req.params.a
-
-app.get("/sum/:a/:b",function(req,res){
- const a = parseInt(req.params.a);
- const b = parseInt(req.params.b);
+//Sending data from body,. we have three ways by query parameter, path parameter and body parameter. Below is the body parameter version of the route
+app.post("/sum",function(req,res){
+ const a = parseInt(req.body.a);
+ const b = parseInt(req.body.b);
 
  const sum = a + b;
  res.json({
