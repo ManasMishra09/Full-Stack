@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing the html file</title>
+    <script>
+        async function add(){
+            const a = document.getElementById("first").value;
+            const b = document.getElementById("second").value;
+
+            const res = await fetch("http://localhost:3000/sum/" + a + "/" + b);
+            const json = await res.json();  
+            document.getElementById("response").innerHTML = json.ans;
+        }
+    </script>
 </head>
 <body>
-    <p>This is a simple paragraph.</p>
+    <input type ="text" id="first" placeholder="Enter the first number">
+    <input type ="text" id="second" placeholder="Enter the second number">
+
+        <button onclick="add()">Add</button>
+        <button onclick="sub()">Subtract</button>
+        <button onclick="div()">Division</button>
+        <button onclick="mul()">Multiply</button>
+        
+        <div id="response"></div>
 </body>
 </html>
