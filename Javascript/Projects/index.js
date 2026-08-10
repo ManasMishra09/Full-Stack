@@ -4,6 +4,8 @@
 const express = require('express');
 
 const app = express();
+//http://localhost:3000/sum?a=10&b=20 this is a query parameter.
+//But if we need to give the values in the form of path parameter then we can use /sum/:a/:b but req.params.a
 
 app.get("/sum",function(req,res){
  const a = parseInt(req.query.a);
@@ -13,15 +15,16 @@ app.get("/sum",function(req,res){
  res.json({
     ans : sum
  })
+}) 
+//Below is the path parameter version of the above route
+app.get("/sub/:a/:b",function(req,res){
+ const a = parseInt(req.params.a);
+ const b = parseInt(req.params.b);
 
- app.get("/sub",function(req,res){
-    const a = parseInt(req.query.a);
-    const b = parseInt(req.query.b);   
-
-    const sub = a - b;
-    res.json({
-        ans : sub
-    })
+ const sub = a - b;
+ res.json({
+    ans : sub
+ })
 })
 
 app.listen(3000);
