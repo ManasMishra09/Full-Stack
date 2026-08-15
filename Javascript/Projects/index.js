@@ -1,31 +1,39 @@
 const express = require('express');
-
 const app = express();
+let requestCount = 0;
 
+
+function middleware (req,res,next){
+   requestCount++;
+   next();
+}
+
+app.get("/requestCount", function(req,res){
+   res.send({
+      requestCount
+   })
+})
+
+app.use(middleware); //globslly defined; Worked for all the below routes.
 app.use(express.json());
+//middlewares
 
-app.get("/",function(req,res){
-    res.sendFile("D:/Full Stack Course/Html/index.html");
+
+app.get("/multiply", function(req,res){
+   const a = parseInt(req.query.a);
+   const b = parseInt(req.query.b);
+
+   const ans = a * b;
+   res.json({
+      ans : ans
+   })
 })
-//Sending data from body,. we have three ways by query parameter, path parameter and body parameter. Below is the body parameter version of the route
-app.post("/sum",function(req,res){
- const a = parseInt(req.body.a);
- const b = parseInt(req.body.b);
 
- const sum = a + b;
- res.json({
-    ans : sum
- })
-}) 
-//Below is the path parameter version of the above route 
-app.get("/sub/:a/:b",function(req,res){
- const a = parseInt(req.params.a);
- const b = parseInt(req.params.b);
-
- const sub = a - b;
- res.json({
-    ans : sub
- })
+app.get("/status",function(req,res){
+   res.send("up")
 })
+
+
+
 
 app.listen(3000);
